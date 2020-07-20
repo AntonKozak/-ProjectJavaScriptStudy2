@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="select">
+
+    </div>
+    <select name="" id="">
+        <option value="" id="">Hus1</option>
+        <option value="" id=""> Hus2</option>
+        <option value="" id=""> Hus6</option>
+        <option value="" id=""> Hus10S</option>
+        <option value="" id=""> Hus10M</option>
+    </select>
+
+    <br>
+    <br>
+   
+
+    <p>
+         <label  class="input" for="">Cm</label>
+          <input type="number" id="inputdo1" placeholder="CM" oninput="Cm(this.value)" onchange="Cm(this.value)">
+
+         <label  class="input" for="">On Table</label>
+          <input type="number" id="inputdo1" placeholder="OnTable" oninput="onTable(this.value)" onchange="onTable(this.value)">
+
+         <label  class="input" for="">M2</label>
+          <input type="number" id="inputdo1" placeholder="M2" oninput="metrKvad(this.value)" onchange="metrKvad(this.value)">
+
+         <label  class="input" for="">Table amount</label>
+          <input type="number" id="inputdo1" placeholder="Table amount" oninput="tableAmount(this.value)" onchange="tableAmount(this.value)">
+
+    </p>
+
+
+    <p>Resultat: 
+
+        <br>
+        
+        <label class="result"> Cm:</label><span id="Cm"></span>
+         <label class="result"> In Line:</label><span id="inLine"></span>  
+          <label  class="result"> On Table:</label><span id="onTable"></span>
+           <label  class="result"> M2:</label><span id="metrKvadratnui"></span>
+            <label  class="result"> Plant amount:</label><span id="plantAmount"></span>
+        
+    </p>
+
+    <p>Boxes 12:
+  <br>
+      <label class="result">Total: </label> <span id="totalBox12"></span>
+      <label class="result">5 Lines: </label> <span id="box125"></span>
+      <label class="result">4 Lines: </label> <span id="box124"></span>
+    </p>
+
+    <p>Boxes 14:
+        <br>
+        <label class="result">Total: </label> <span id="totalBox14"></span>
+        <label class="result">5 Lines: </label> <span id="box145"></span>
+        <label class="result">4 Lines: </label> <span id="box144"></span>
+      </p>
+
+     
+    <script src="script.js"></script>
+</body>
+</html>

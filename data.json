@@ -1,0 +1,38 @@
+[
+    {
+        "id" : 1,
+    "name" : "Hus1",
+    "width" : 560,
+    "length" : 160,
+    "lines" : 9
+},
+{
+    "id" : 2,
+    "name" : "Hus2",
+    "width" : 700,
+    "length" : 160,
+    "lines" : 10
+},
+{  "id" : 6,
+    "name" : "Hus6",
+    "width" : 500,
+    "length" : 160,
+    "lines" : 9
+},
+{
+    "id" : 10,
+    "name" : "Hus10S",
+    "width" : 810,
+    "length" : 160,
+    "lines" : 9
+},
+{
+    "id" : 10,
+    "name" : "Hus10M",
+    "width" : 930,
+    "length" : 160,
+    "lines" : 9
+}
+
+
+]
