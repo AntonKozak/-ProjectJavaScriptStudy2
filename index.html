@@ -7,53 +7,39 @@
     <title>Document</title>
 </head>
 <body>
-  <div>
-    <div id="select"></div>
-    <!-- <label class="result"> Width:</label><span id="width"></span>
-         <label class="result"> Length:</label><span id="length"></span>  
-          <label  class="result"> Lines:</label><span id="lines"></span> -->
-           
-  </div>
-<!-- oninput="Cm(this.value)" onchange="Cm(this.value) -->
-    <br>
+    <div id="select"></div>      
     <br>
     <p>
-         <label  class="input" for="">Cm</label>
-          <input type="number" id="inputdo1" placeholder="CM" value="0" onchange="selectHouse()">
+         <label  class="input" for="">Between Plants In Line</label>
+          <input type="number" id="UsersBetweenPlantsInLine" value="0" oninput="betweenPlants()" onchange="betweenPlants()">
 
-         <label  class="input" for="">On Table</label>
-          <input type="number" id="inputdo1" placeholder="OnTable" oninput="onTable(this.value)" onchange="onTable(this.value)">
+         <label  class="input" for="">Amount Plants On Table</label>
+          <input type="number" id="AmountPlantsOnTable" value="0" oninput="amountPlantsOnTable()" onchange="amountPlantsOnTable()">
 
-         <label  class="input" for="">M2</label>
-          <input type="number" id="inputdo1" placeholder="M2" oninput="metrKvad(this.value)" onchange="metrKvad(this.value)">
+         <label  class="input" for="">Plants Per M<sup>2</sup></label>
+          <input type="number" id="PlantsPerMetr" value="0" oninput="plantsPerMetr()" onchange="plantsPerMetr()">
 
-         <label  class="input" for="">Table amount</label>
-          <input type="number" id="inputdo1" placeholder="Table amount" oninput="tableAmount(this.value)" onchange="tableAmount(this.value)">
+         <label  class="input" for="">Table Amount</label>
+          <input type="number" id="TableAmount" oninput="tableAmount()" onchange="tableAmount()">
 
     </p>
-
-    <p>Resultat: 
-
-        <br>
-        
-        <label class="result"> Cm:</label><span id="Cm1"></span>
+<br>
+    <p><strong>Resultat:  </strong> 
+        <label class="result"> Between Plants In Line:</label><span id="Cm"></span>
          <label class="result"> In Line:</label><span id="inLine"></span>  
-          <label  class="result"> On Table:</label><span id="onTable"></span>
-           <label  class="result"> M2:</label><span id="metrKvadratnui"></span>
+          <label  class="result"> Amount Plants On Table:</label><span id="onTable"></span>
+           <label  class="result"> Plants Per M<sup>2</sup>:</label><span id="metrKvadratnui"></span>
             <label  class="result"> Plant amount:</label><span id="plantAmount"></span>
-        
     </p>
-
-    <p>Boxes 12:
-  <br>
-      <label class="result">Total: </label> <span id="totalBox12"></span>
+<br>
+    <p><strong>Boxes 12:</strong> 
+      <label class="result">Total Per Table: </label> <span id="totalBox12"></span>
       <label class="result">5 Lines: </label> <span id="box125"></span>
       <label class="result">4 Lines: </label> <span id="box124"></span>
     </p>
-
-    <p>Boxes 14:
-        <br>
-        <label class="result">Total: </label> <span id="totalBox14"></span>
+<br>
+    <p><strong>Boxes 14:</strong> 
+        <label class="result">Total Per Table: </label> <span id="totalBox14"></span>
         <label class="result">5 Lines: </label> <span id="box145"></span>
         <label class="result">4 Lines: </label> <span id="box144"></span>
       </p>

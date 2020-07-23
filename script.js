@@ -1,8 +1,6 @@
 var data;
 var currentID;
-var selectedItem ="";
-var inputdo1 = document.getElementById('inputdo1')
-var width = ""
+var selectedItem;
 
 
 async function start() {
@@ -11,9 +9,8 @@ async function start() {
     .catch((error) => document.write(error));
 
     
-  var html = `<select name="" id="house" onchange="selectHouse()">
+  var html = `<select name="" id="house" onchange="betweenPlants()">
               <option value="0">Välj hus</option>`;
-
 
   for (var i = 0; i < data.length; i++) {
     html += `
@@ -24,36 +21,26 @@ async function start() {
   html += `</select>`;
 
   document.getElementById("select").innerHTML = html;
-
-  console.log(data)
-  console.log(document.getElementById("house").value)
-  //document.getElementById("house").addEventListener("onchange", selectHouse());
-
-  
 }
 
 start();
 
-function selectHouse() {
+function betweenPlants() {
 
-  
   currentID = document.getElementById("house").value;
+
   if (currentID != "0") {
     selectedItem = data.find(item => item.id == currentID);
-    //console.log(selectedItem.name);
-  //   if (selectedItem !="0"){
-  // document.getElementById("width").innerHTML=selectedItem.width
-  // document.getElementById("length").innerHTML=selectedItem.length
-  // document.getElementById("lines").innerHTML=selectedItem.lines
-  //   }
 }
-  number = document.getElementById("inputdo1").value;
+
+  number = document.getElementById("UsersBetweenPlantsInLine").value;
+
   if (number != "0") {
     let numberValue 
     numberValue = parseFloat(number)
     
-  document.getElementById("Cm1").innerHTML=numberValue
-  document.getElementById("inLine").innerHTML=(selectedItem.width) / numberValue
+    document.getElementById("Cm").innerHTML=numberValue
+    document.getElementById("inLine").innerHTML=(selectedItem.width) / numberValue
     document.getElementById("onTable").innerHTML=((selectedItem.width) / numberValue) * selectedItem.lines
     document.getElementById("metrKvadratnui").innerHTML=(((((selectedItem.width) / numberValue) * selectedItem.lines) / selectedItem.width)/selectedItem.length)*10000
     document.getElementById("box125").innerHTML=(((selectedItem.width) / numberValue)/12)*5
@@ -62,44 +49,60 @@ function selectHouse() {
     document.getElementById("box144").innerHTML=(((selectedItem.width) / numberValue)/14)*4
     document.getElementById("totalBox12").innerHTML=((((selectedItem.width) / numberValue)/12)*4)+((((selectedItem.width) / numberValue)/12)*5)
     document.getElementById("totalBox14").innerHTML=((((selectedItem.width) / numberValue)/14)*4)+((((selectedItem.width) / numberValue)/14)*5)
-
-
-
-
-  console.log(selectedItem.name);
   }
-
-  
 }
 
-// async function Id () {
-//   let getingId = await data
-//   console.log(getingId)
-// }
 
-// Id()
+function amountPlantsOnTable() {
 
-// function Cm(valNum) {
-  
-// //   let width, length, lines, squareMeter
-// // width = document.getElementById('width').value
-// // width = parseFloat(width)
-// // length = document.getElementById('length').value
-// // length = parseFloat(length)
-// // lines = document.getElementById('lines').value
-// // lines = parseFloat(lines)
+  currentID = document.getElementById("house").value;
 
-// // squareMeter= (width * length)/10000
+  if (currentID != "0") {
+    selectedItem = data.find(item => item.id == currentID);
+}
 
-//   document.getElementById("Cm").innerHTML=valNum
-//   // document.getElementById("inLine").innerHTML=(width) / valNum
-//   // document.getElementById("onTable").innerHTML=((width) / valNum)*lines
-//   // document.getElementById("metrKvadratnui").innerHTML=(((width) / valNum) *lines) / squareMeter
-//   // document.getElementById("box125").innerHTML=(((width) / valNum)/12)*5
-//   // document.getElementById("box124").innerHTML=(((width) / valNum)/12)*4
-//   // document.getElementById("box145").innerHTML=(((width) / valNum)/14)*5
-//   // document.getElementById("box144").innerHTML=(((width) / valNum)/14)*4
-//   // document.getElementById("totalBox12").innerHTML=((((width) / valNum)/12)*4)+((((width) / valNum)/12)*5)
-//   // document.getElementById("totalBox14").innerHTML=((((width) / valNum)/14)*4)+((((width) / valNum)/14)*5)
+  number = document.getElementById("AmountPlantsOnTable").value;
 
-// }
+  if (number != "0") {
+    let numberValue 
+    numberValue = parseFloat(number)
+    
+    document.getElementById("Cm").innerHTML= selectedItem.width / (numberValue/selectedItem.lines)
+    document.getElementById("inLine").innerHTML=numberValue / selectedItem.lines  
+    document.getElementById("onTable").innerHTML=numberValue 
+    document.getElementById("metrKvadratnui").innerHTML=((numberValue/ selectedItem.width)/selectedItem.length)*10000
+    document.getElementById("box125").innerHTML=((numberValue/selectedItem.lines)/12)*5
+    document.getElementById("box124").innerHTML=((numberValue/selectedItem.lines)/12)*4
+    document.getElementById("box145").innerHTML=((numberValue/selectedItem.lines)/14)*5
+    document.getElementById("box144").innerHTML=((numberValue/selectedItem.lines)/14)*4
+    document.getElementById("totalBox12").innerHTML=(((numberValue/selectedItem.lines)/12)*5)+(((numberValue/selectedItem.lines)/12)*4)
+    document.getElementById("totalBox14").innerHTML=(((numberValue/selectedItem.lines)/14)*5)+(((numberValue/selectedItem.lines)/14)*4)
+  }
+}
+
+function plantsPerMetr() {
+
+  currentID = document.getElementById("house").value;
+
+  if (currentID != "0") {
+    selectedItem = data.find(item => item.id == currentID);
+}
+
+  number = document.getElementById("PlantsPerMetr").value;
+
+  if (number != "0") {
+    let numberValue 
+    numberValue = parseFloat(number)
+    
+    document.getElementById("Cm").innerHTML= selectedItem.width / ((numberValue * ((selectedItem.width*selectedItem.length)/10000))/selectedItem.lines)
+    document.getElementById("inLine").innerHTML=(numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines  
+    document.getElementById("onTable").innerHTML=numberValue * ((selectedItem.width*selectedItem.length)/10000) 
+    document.getElementById("metrKvadratnui").innerHTML=numberValue
+    document.getElementById("box125").innerHTML=(((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*5
+    document.getElementById("box124").innerHTML=(((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*4
+    document.getElementById("box145").innerHTML=(((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*5
+    document.getElementById("box144").innerHTML=(((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4
+    document.getElementById("totalBox12").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*4)
+    document.getElementById("totalBox14").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4)
+  }
+}
