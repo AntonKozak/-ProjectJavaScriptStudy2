@@ -2,6 +2,7 @@ var data;
 var currentID;
 var selectedItem;
 
+
 async function start() {
   data = await fetch("data.json")
     .then((response) => response.json())
@@ -48,7 +49,6 @@ function betweenPlants() {
     document.getElementById("box144").innerHTML=(((selectedItem.width) / numberValue)/14)*4
     document.getElementById("totalBox12").innerHTML=((((selectedItem.width) / numberValue)/12)*4)+((((selectedItem.width) / numberValue)/12)*5)
     document.getElementById("totalBox14").innerHTML=((((selectedItem.width) / numberValue)/14)*4)+((((selectedItem.width) / numberValue)/14)*5)
-    
   }
 }
 
@@ -105,21 +105,4 @@ function plantsPerMetr() {
     document.getElementById("totalBox12").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*4)
     document.getElementById("totalBox14").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4)
   }
-}
-
-
-let tableAmoun
-function tableAmount() {
-tableAmoun = document.getElementById("TableAmount").value;
-
-  if (tableAmoun != "0") {
-    let num, bordAmount
-    num = parseFloat (tableAmoun)
-    bordAmount = document.getElementById('onTable')
-    bordAmount = parseFloat(bordAmount)
-    document.getElementById("PlantAmount").innerHTML= num * bordAmount
-
-}
-
-  
 }
