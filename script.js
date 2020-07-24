@@ -31,7 +31,7 @@ function betweenPlants() {
 
   if (currentID != "0") {
     selectedItem = data.find(item => item.id == currentID);
-}
+
 
   number = document.getElementById("UsersBetweenPlantsInLine").value;
 
@@ -51,6 +51,8 @@ function betweenPlants() {
     document.getElementById("totalBox14").innerHTML=((((selectedItem.width) / numberValue)/14)*4)+((((selectedItem.width) / numberValue)/14)*5)
   }
 }
+tableAmount()
+}
 
 
 function amountPlantsOnTable() {
@@ -59,13 +61,13 @@ function amountPlantsOnTable() {
 
   if (currentID != "0") {
     selectedItem = data.find(item => item.id == currentID);
-}
 
-  number = document.getElementById("AmountPlantsOnTable").value;
 
-  if (number != "0") {
+  userNumber = document.getElementById("AmountPlantsOnTable").value;
+
+  if (userNumber != "0") {
     let numberValue 
-    numberValue = parseFloat(number)
+    numberValue = parseFloat(userNumber)
     
     document.getElementById("Cm").innerHTML= selectedItem.width / (numberValue/selectedItem.lines)
     document.getElementById("inLine").innerHTML=numberValue / selectedItem.lines  
@@ -77,7 +79,8 @@ function amountPlantsOnTable() {
     document.getElementById("box144").innerHTML=((numberValue/selectedItem.lines)/14)*4
     document.getElementById("totalBox12").innerHTML=(((numberValue/selectedItem.lines)/12)*5)+(((numberValue/selectedItem.lines)/12)*4)
     document.getElementById("totalBox14").innerHTML=(((numberValue/selectedItem.lines)/14)*5)+(((numberValue/selectedItem.lines)/14)*4)
-  }
+  }}
+  tableAmount()
 }
 
 function plantsPerMetr() {
@@ -86,13 +89,13 @@ function plantsPerMetr() {
 
   if (currentID != "0") {
     selectedItem = data.find(item => item.id == currentID);
-}
 
-  number = document.getElementById("PlantsPerMetr").value;
 
-  if (number != "0") {
+  inputNumber = document.getElementById("PlantsPerMetr").value;
+
+  if (inputNumber != "0") {
     let numberValue 
-    numberValue = parseFloat(number)
+    numberValue = parseFloat(inputNumber)
     
     document.getElementById("Cm").innerHTML= selectedItem.width / ((numberValue * ((selectedItem.width*selectedItem.length)/10000))/selectedItem.lines)
     document.getElementById("inLine").innerHTML=(numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines  
@@ -104,5 +107,64 @@ function plantsPerMetr() {
     document.getElementById("box144").innerHTML=(((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4
     document.getElementById("totalBox12").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*4)
     document.getElementById("totalBox14").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4)
-  }
+  }}
+  tableAmount()
 }
+
+function tableAmount() {
+
+ table = document.getElementById("TableAmount").value;
+ number = document.getElementById("UsersBetweenPlantsInLine").value;
+ userNumber = document.getElementById("AmountPlantsOnTable").value;
+ inputNumber = document.getElementById("PlantsPerMetr").value;
+ 
+
+  if (number != "0") {
+    let tableValue 
+    tableValue = parseFloat(table)
+
+      currentID = document.getElementById("house").value;
+
+    selectedItem = data.find(item => item.id == currentID);
+
+    number = document.getElementById("UsersBetweenPlantsInLine").value;
+
+    let numberValue 
+    numberValue = parseFloat(number)
+
+    document.getElementById("PlantAmount").innerHTML= tableValue * ((selectedItem.width) / numberValue) * selectedItem.lines
+    
+  }else 
+  if (userNumber != "0") {
+    let tableValue 
+    tableValue = parseFloat(table)
+
+    currentID = document.getElementById("house").value;
+
+    selectedItem = data.find(item => item.id == currentID)
+
+    userNumber = document.getElementById("AmountPlantsOnTable").value;
+
+    let numberValue 
+
+    numberValue = parseFloat(userNumber)
+
+    document.getElementById("PlantAmount").innerHTML= numberValue * tableValue
+
+  }else 
+  if (inputNumber != "0") {
+    let tableValue 
+    tableValue = parseFloat(table)
+
+    currentID = document.getElementById("house").value;
+
+    selectedItem = data.find(item => item.id == currentID)
+
+    inputNumber = document.getElementById("PlantsPerMetr").value;
+    
+    let numberValue 
+    numberValue = parseFloat(inputNumber)
+  
+    document.getElementById("PlantAmount").innerHTML= numberValue * ((selectedItem.width*selectedItem.length)/10000) * tableValue
+  }
+  }
