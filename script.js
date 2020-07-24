@@ -2,7 +2,6 @@ var data;
 var currentID;
 var selectedItem;
 
-
 async function start() {
   data = await fetch("data.json")
     .then((response) => response.json())
@@ -27,7 +26,7 @@ start();
 
 function betweenPlants() {
 
-  currentID = document.getElementById("house").value;
+   currentID = document.getElementById("house").value;
 
   if (currentID != "0") {
     selectedItem = data.find(item => item.id == currentID);
@@ -41,7 +40,7 @@ function betweenPlants() {
     
     document.getElementById("Cm").innerHTML=numberValue
     document.getElementById("inLine").innerHTML=(selectedItem.width) / numberValue
-    document.getElementById("onTable").innerHTML=((selectedItem.width) / numberValue) * selectedItem.lines
+    document.getElementById("onTable").innerHTML=
     document.getElementById("metrKvadratnui").innerHTML=(((((selectedItem.width) / numberValue) * selectedItem.lines) / selectedItem.width)/selectedItem.length)*10000
     document.getElementById("box125").innerHTML=(((selectedItem.width) / numberValue)/12)*5
     document.getElementById("box124").innerHTML=(((selectedItem.width) / numberValue)/12)*4
@@ -49,9 +48,9 @@ function betweenPlants() {
     document.getElementById("box144").innerHTML=(((selectedItem.width) / numberValue)/14)*4
     document.getElementById("totalBox12").innerHTML=((((selectedItem.width) / numberValue)/12)*4)+((((selectedItem.width) / numberValue)/12)*5)
     document.getElementById("totalBox14").innerHTML=((((selectedItem.width) / numberValue)/14)*4)+((((selectedItem.width) / numberValue)/14)*5)
+  between = ((selectedItem.width) / numberValue) * selectedItem.lines
   }
 }
-
 
 function amountPlantsOnTable() {
 
@@ -105,4 +104,21 @@ function plantsPerMetr() {
     document.getElementById("totalBox12").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/12)*4)
     document.getElementById("totalBox14").innerHTML=((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*5)+((((numberValue * ((selectedItem.width*selectedItem.length)/10000)) / selectedItem.lines )/14)*4)
   }
+}
+
+
+let tableAmoun
+function tableAmount() {
+tableAmoun = document.getElementById("TableAmount").value;
+
+  if (tableAmoun != "0") {
+    let num, bordAmount, bordAmount1
+    num = parseFloat (tableAmoun)
+    bordAmount = document.getElementById('onTable')
+    bordAmount1 = eval(bordAmount)
+    document.getElementById("PlantAmount").innerHTML= num * between
+
+}
+
+  
 }
