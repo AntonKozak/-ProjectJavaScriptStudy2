@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "name" : "Boxes 12" , 
+        "capacity" : 12
+    },
+    {
+        "id" : 2,
+        "name" : "Boxes 14" , 
+        "capacity" : 14 
+    },
+    {
+        "id" : 3,
+        "name" : "Black 15" , 
+        "capacity" : 15
+    },
+    {
+        "id" : 4,
+        "name" : "Black 18" , 
+        "capacity" : 18
+    }
+]

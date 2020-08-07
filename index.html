@@ -9,18 +9,19 @@
 <body>
     <div id="select"></div>      
     <br>
+    <div id="selectBox"></div>
     <p>
          <label  class="input" for="">Between Plants In Line</label>
-          <input type="number" id="UsersBetweenPlantsInLine" value="0" oninput="betweenPlants()" onchange="betweenPlants()">
+          <input type="number" id="UsersBetweenPlantsInLine" value="0" oninput="betweenPlants()" onchange="betweenPlants()" onclick="betweenPlants()">
 
          <label  class="input" for="">Amount Plants On Table</label>
-          <input type="number" id="AmountPlantsOnTable" value="0" oninput="amountPlantsOnTable()" onchange="amountPlantsOnTable()">
+          <input type="number" id="AmountPlantsOnTable" value="0" oninput="amountPlantsOnTable()" onchange="amountPlantsOnTable()" onclick="amountPlantsOnTable()">
 
          <label  class="input" for="">Plants Per M<sup>2</sup></label>
-          <input type="number" id="PlantsPerMetr" value="0" oninput="plantsPerMetr()" onchange="plantsPerMetr()">
+          <input type="number" id="PlantsPerMetr" value="0" oninput="plantsPerMetr()" onchange="plantsPerMetr()" onclick="plantsPerMetr()">
 
          <label  class="input" for="">Table Amount</label>
-          <input type="number" id="TableAmount" value="1" oninput="tableAmount()" onchange="tableAmount()">
+          <input type="number" id="TableAmount" value="1" oninput="tableAmount()" onchange="tableAmount()" onclick="tableAmount()">
 
     </p>
 <br>
@@ -32,19 +33,13 @@
             <label  class="result"> Plant amount:</label><span id="PlantAmount"></span>
     </p>
 <br>
-    <p><strong>Boxes 12:</strong> 
-      <label class="result">Total Per Table: </label> <span id="totalBox12"></span>
+    <p><strong><div id="res"></div> </strong> <div id="res1"></div> <div id="res2"></div> <div id="res3"></div>
+      <!-- <label class="result">Total Per Table: </label> <span id="totalBox12"></span>
       <label class="result">5 Lines: </label> <span id="box125"></span>
-      <label class="result">4 Lines: </label> <span id="box124"></span>
+      <label class="result">4 Lines: </label> <span id="box124"></span> -->
     </p>
-<br>
-    <p><strong>Boxes 14:</strong> 
-        <label class="result">Total Per Table: </label> <span id="totalBox14"></span>
-        <label class="result">5 Lines: </label> <span id="box145"></span>
-        <label class="result">4 Lines: </label> <span id="box144"></span>
-      </p>
 
-     
+      
     <script src="script.js"></script>
 </body>
 </html>
